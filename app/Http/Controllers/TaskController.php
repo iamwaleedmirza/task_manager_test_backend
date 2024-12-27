@@ -56,7 +56,7 @@ class TaskController extends Controller
         $task->delete();
         return response()->json('Task deleted successfully');
     }
-    public function upcoming ()
+    public function upcoming()
     {
         $tasks = Task::whereBetween('due_date', [today(),today()->addDays(7)])->get();
         return response()->json(TaskResource::collection($tasks));
